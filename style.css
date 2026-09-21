@@ -1,0 +1,478 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at top, #fffde8, transparent 50%),
+        linear-gradient(135deg, #fff8c9, #ffe98a);
+
+    font-family: Georgia, serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #765700;
+}
+
+main {
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+
+    animation: aparecer 2s ease;
+}
+
+.subtitulo {
+    font-size: 19px;
+    font-style: italic;
+
+    animation: aparecer 3s ease;
+}
+
+/* =========================
+       RAMO
+========================= */
+
+.ramo {
+    position: relative;
+
+    width: 430px;
+    height: 400px;
+
+    margin: 5px auto;
+
+    cursor: pointer;
+
+    animation: aparecerRamo 2s ease;
+}
+
+/* FLORES */
+
+.flor {
+    position: absolute;
+
+    font-size: 90px;
+
+    filter:
+        drop-shadow(0 5px 5px rgba(120, 80, 0, .25));
+
+    z-index: 5;
+
+    transition: .3s;
+}
+
+.flor:hover {
+    transform: scale(1.12) rotate(-5deg);
+}
+
+.flor1 {
+    top: 35px;
+    left: 55px;
+    animation: balanceo 3s ease-in-out infinite;
+}
+
+.flor2 {
+    top: 5px;
+    left: 165px;
+    animation: balanceo 3s ease-in-out infinite .4s;
+}
+
+.flor3 {
+    top: 45px;
+    right: 50px;
+    animation: balanceo 3s ease-in-out infinite .8s;
+}
+
+.flor4 {
+    top: 95px;
+    left: 165px;
+    font-size: 70px;
+    animation: balanceo 3s ease-in-out infinite 1.2s;
+}
+
+/* TALLOS */
+
+.tallo {
+    position: absolute;
+
+    width: 9px;
+    height: 240px;
+
+    background: #4d8738;
+
+    bottom: 45px;
+    left: 210px;
+
+    border-radius: 20px;
+
+    transform-origin: bottom;
+
+    z-index: 1;
+}
+
+.t1 {
+    transform: rotate(-18deg);
+}
+
+.t2 {
+    transform: rotate(-6deg);
+}
+
+.t3 {
+    transform: rotate(10deg);
+}
+
+.t4 {
+    transform: rotate(20deg);
+}
+
+/* HOJAS */
+
+.hoja {
+    position: absolute;
+
+    width: 70px;
+    height: 32px;
+
+    background: #59953e;
+
+    border-radius: 100% 0 100% 0;
+
+    z-index: 2;
+}
+
+.h1 {
+    left: 85px;
+    bottom: 135px;
+    transform: rotate(25deg);
+}
+
+.h2 {
+    right: 80px;
+    bottom: 125px;
+    transform: rotate(155deg);
+}
+
+.h3 {
+    left: 175px;
+    bottom: 90px;
+    transform: rotate(-15deg);
+}
+
+/* PAPEL */
+
+.papel {
+    position: absolute;
+
+    width: 280px;
+    height: 165px;
+
+    left: 75px;
+    bottom: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ead09d,
+            #f8e4b6,
+            #e4c78e
+        );
+
+    clip-path: polygon(
+        5% 0,
+        95% 0,
+        72% 100%,
+        28% 100%
+    );
+
+    z-index: 4;
+
+    box-shadow: 0 10px 20px rgba(80, 50, 0, .15);
+}
+
+/* INSTRUCCIÓN */
+
+.instruccion {
+    font-size: 15px;
+    opacity: .7;
+
+    animation: parpadear 2s infinite;
+}
+
+/* =========================
+       PÉTALOS
+========================= */
+
+.petalos span {
+    position: fixed;
+
+    top: -50px;
+
+    font-size: 25px;
+
+    opacity: .7;
+
+    animation: caer linear infinite;
+}
+
+.petalos span:nth-child(1) {
+    left: 5%;
+    animation-duration: 8s;
+}
+
+.petalos span:nth-child(2) {
+    left: 18%;
+    animation-duration: 11s;
+    animation-delay: 2s;
+}
+
+.petalos span:nth-child(3) {
+    left: 32%;
+    animation-duration: 9s;
+    animation-delay: 1s;
+}
+
+.petalos span:nth-child(4) {
+    left: 48%;
+    animation-duration: 12s;
+    animation-delay: 4s;
+}
+
+.petalos span:nth-child(5) {
+    left: 63%;
+    animation-duration: 8s;
+    animation-delay: 3s;
+}
+
+.petalos span:nth-child(6) {
+    left: 76%;
+    animation-duration: 10s;
+}
+
+.petalos span:nth-child(7) {
+    left: 88%;
+    animation-duration: 13s;
+    animation-delay: 2s;
+}
+
+.petalos span:nth-child(8) {
+    left: 95%;
+    animation-duration: 9s;
+    animation-delay: 5s;
+}
+
+/* =========================
+       CARTA
+========================= */
+
+.carta {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(80, 55, 0, .35);
+
+    backdrop-filter: blur(5px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .5s;
+
+    z-index: 20;
+}
+
+.carta.abierta {
+    opacity: 1;
+    visibility: visible;
+}
+
+.carta-contenido {
+    position: relative;
+
+    width: min(90%, 550px);
+
+    max-height: 85vh;
+    overflow-y: auto;
+
+    background: #fffbea;
+
+    padding: 45px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.25);
+
+    transform: scale(.7) translateY(40px);
+
+    transition: .5s;
+
+    text-align: left;
+}
+
+.carta.abierta .carta-contenido {
+    transform: scale(1) translateY(0);
+}
+
+.carta-contenido h2 {
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    color: #876300;
+}
+
+.carta-contenido p {
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+
+    color: #604f25;
+}
+
+.carta-contenido .frase {
+    text-align: center;
+
+    font-style: italic;
+
+    color: #8a6500;
+}
+
+.carta-contenido h3 {
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: #d09b00;
+
+    font-size: 24px;
+}
+
+.carta-contenido button {
+    position: absolute;
+
+    top: 12px;
+    right: 18px;
+
+    border: none;
+
+    background: none;
+
+    font-size: 30px;
+
+    color: #806000;
+
+    cursor: pointer;
+}
+
+/* =========================
+       ANIMACIONES
+========================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes aparecerRamo {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes balanceo {
+    0%, 100% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(4deg);
+    }
+}
+
+@keyframes caer {
+
+    0% {
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+    }
+}
+
+@keyframes parpadear {
+
+    0%, 100% {
+        opacity: .5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 31px;
+    }
+
+    .subtitulo {
+        font-size: 16px;
+    }
+
+    .ramo {
+        transform: scale(.75);
+        margin: -20px auto;
+    }
+
+    .instruccion {
+        margin-top: -20px;
+    }
+
+    .carta-contenido {
+        padding: 35px 25px;
+    }
+    .dedicatoria {
+        font-size: 8px;
+    }
+}
